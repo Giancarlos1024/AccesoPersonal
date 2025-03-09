@@ -68,8 +68,8 @@ export const Distribucion = () => {
                   <td className="text-[12px] border border-gray-300 px-4 py-2 text-center">{item.salida_unidades_moviles}</td>
                 </tr>
                 
-                {/* Fila desplegable */}
-                {expanded === index && (
+               
+                {/* {expanded === index && (
                   <tr className="bg-gray-50 text-xs">
                     <td className="text-[9px] text-gray-500 border border-gray-200 px-4 py-2 text-center">Bocamina Terry</td>
                     <td className="text-[9px] text-gray-500 border border-gray-200 px-4 py-2 text-center">{item.total_personas}</td>
@@ -79,7 +79,7 @@ export const Distribucion = () => {
                     <td className="text-[9px] text-gray-500 border border-gray-200 px-4 py-2 text-center">{item.entrada_unidades_moviles}</td>
                     <td className="text-[9px] text-gray-500 border border-gray-200 px-4 py-2 text-center">{item.salida_unidades_moviles}</td>
                   </tr>
-                )}
+                )} */}
               </React.Fragment>
             ))
           ) : (
