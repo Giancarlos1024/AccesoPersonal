@@ -34,7 +34,7 @@ export const BeaconsDashboard = () => {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   
-
+  console.log("datos de beacon", beacons);
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen">

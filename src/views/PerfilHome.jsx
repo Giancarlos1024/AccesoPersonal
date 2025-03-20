@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 
 export const PerfilHome = () => {
+
+
+    const apiUrl = import.meta.env.VITE_API_URL;
+
     const [modalOpen, setModalOpen] = useState(false);
     const [userData, setUserData] = useState({
         dni: "",
@@ -26,6 +30,35 @@ export const PerfilHome = () => {
         setUserData(updatedUser);
         localStorage.setItem("user", JSON.stringify(updatedUser));
     };
+
+
+
+    const handleSubmit = async () => {
+        console.log("Enviando datos:", userData); // Verifica la data antes de enviarla
+    
+        try {
+            const response = await fetch(`${apiUrl}/update-profile/${userData.dni}`, { // Añade el dni en la URL
+                method: "PUT", // Cambia el método a PUT
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(userData),
+            });
+    
+            const data = await response.json();
+            console.log("Respuesta del servidor:", data); // Verifica la respuesta del backend
+    
+            if (data.success) {
+                alert("Perfil actualizado con éxito.");
+                setModalOpen(false);
+            } else {
+                alert("Error al actualizar el perfil.");
+            }
+        } catch (error) {
+            console.error("Error en la actualización:", error);
+            alert("Hubo un problema con la actualización.");
+        }
+    };
+    
+    
 
     return (
         <div className="mt-5 flex flex-col bg-white text-black">
@@ -169,11 +202,12 @@ export const PerfilHome = () => {
 
                         <div className="flex mt-4">
                             <button 
-                                onClick={() => setModalOpen(false)}
+                                onClick={handleSubmit}
                                 className="mt-4 bg-cyan-600 text-white text-lg px-4 py-2 rounded-lg cursor-pointer hover:bg-cyan-400 hover:scale-102 transition-all duration-200 active:opacity-50"
                             >
                                 Guardar
                             </button>
+
                             <button 
                                 onClick={() => setModalOpen(false)}
                                 className="ml-4 mt-4 bg-gray-500 text-white text-lg px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-400 transition-all duration-200"

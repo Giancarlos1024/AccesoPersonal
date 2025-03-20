@@ -46,6 +46,10 @@ export const Login = () => {
         navigate("/registrar");
     };
 
+    const handleVistaPrevia = () => {
+        navigate("/dashboard");
+    };
+
     return (
         <div className="bg-black p-0 h-dvh flex justify-center items-center">
             <div className="rounded-lg w-5xl h-130 flex flex-row justify-center items-center border-0">
@@ -56,8 +60,16 @@ export const Login = () => {
                     <p className="text-xl text-gray-600 leading-20 italic mt-2">¡Crea tu cuenta en segundos!</p>
                     <button 
                         onClick={handleRegistrar} 
-                        className="bg-[#FDD383] cursor-pointer py-3 px-8 rounded-4xl transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg focus:scale-95 hover:bg-gray-100">
+                        className="bg-[#FDD383]  cursor-pointer py-3 px-13 rounded-4xl transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg focus:scale-95 hover:bg-gray-100">
                         Registrar
+                    </button>
+
+                    <button
+                        className="bg-[#FDD383] mt-4 hover:bg-gray-100 text-black cursor-pointer py-3 px-10 rounded-4xl 
+                                transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg focus:scale-95"
+                        onClick={handleVistaPrevia}
+                    >
+                        Vista Previa
                     </button>
                 </section>
 

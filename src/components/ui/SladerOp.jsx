@@ -96,6 +96,33 @@ export const Slader = ({ isCollapsed, setIsCollapsed }) => {
                             </NavLink>
                         </li>
                     )}
+
+                    {role === "admin" && (
+                        <li>
+                            <NavLink
+                                to="/dashboard/asignacionbeacons"
+                                className={({ isActive }) =>
+                                    `flex items-center p-3 mx-3 text-xs rounded-lg font-medium ${isActive ? activeClass : inactiveClass}`
+                                }
+                            >
+                                <PackagePlus className="mr-2 ml-2"/>
+                                {!isCollapsed && "Registrar Asignaciones"}
+                            </NavLink>
+                        </li>
+                    )}
+                 
+                    <li>
+                        <NavLink
+                            to="/dashboard/historial"
+                            className={({ isActive }) =>
+                                `flex items-center p-3 mx-3 text-xs rounded-lg font-medium ${isActive ? activeClass : inactiveClass}`
+                            }
+                        >
+                            <PackagePlus className="mr-2 ml-2"/>
+                            {!isCollapsed && "Historial"}
+                        </NavLink>
+                    </li>
+                   
                 </ul>
             </nav>
         </aside>

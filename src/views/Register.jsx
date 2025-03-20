@@ -207,6 +207,7 @@ export const Register = () => {
               >
                 Registrar
               </button>
+
             </div>
 
             
